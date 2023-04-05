@@ -13,5 +13,6 @@ If you have forked this repository and would like to use this as a codespace tem
 3. Visit `https://github.com/<organization>/<repository>`
 4. Click "Use this template" button at the top right
 5. Click "Open in a codespace"
+6. X
 
 If you need to delete the codespace, you can do this at [https://github.com/codespaces](https://github.com/codespaces)
