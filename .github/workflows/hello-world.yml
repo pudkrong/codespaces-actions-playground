@@ -15,8 +15,7 @@ jobs:
 
       - name: Set latest tag
         run: |
-          git fetch --tags
-          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          echo "this commit hash >> ${{ github.sha }}"
           echo "IMAGE_TAG=v1.0.2" >> $GITHUB_OUTPUT
         id: image_tag
 
