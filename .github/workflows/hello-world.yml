@@ -14,10 +14,10 @@ jobs:
           echo "Hello world"
 
       - name: Set latest tag
+        id: image_tag
         run: |
           echo "this commit hash >> ${{ github.sha }}"
           echo "IMAGE_TAG=v1.0.2" >> $GITHUB_OUTPUT
-        id: image_tag
 
   deploy:
     runs-on: ubuntu-20.04
@@ -27,4 +27,4 @@ jobs:
     steps:
       - name: echo
         run: |
-          echo "Image tag is ${{ needs.hello-world.outputs.IMAGE_TAG }}"
+          echo "Image tag is ${{ needs.hello-world.steps.image_tag.outputs.IMAGE_TAG }}"
