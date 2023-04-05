@@ -18,6 +18,7 @@ jobs:
         run: |
           echo "this commit hash >> ${{ github.sha }}"
           echo "IMAGE_TAG=v1.0.2" >> $GITHUB_OUTPUT
+          echo "::set-output name=image_tag::v1.0.2"
 
   deploy:
     runs-on: ubuntu-20.04
@@ -27,4 +28,4 @@ jobs:
     steps:
       - name: echo
         run: |
-          echo "Image tag is ${{ needs.hello-world.steps.image_tag.outputs.IMAGE_TAG }}"
+          echo "Image tag is ${{ needs.hello-world.outputs.image_tag }}"
