@@ -2,6 +2,9 @@ name: Hello world
 
 on: [push]
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   hello-world:
     runs-on: ubuntu-22.04
