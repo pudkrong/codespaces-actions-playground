@@ -17,8 +17,7 @@ jobs:
         id: image_tag
         run: |
           echo "this commit hash >> ${{ github.sha }}"
-          echo "IMAGE_TAG=v1.0.2" >> $GITHUB_OUTPUT
-          echo "::set-output name=image_tag::v1.0.2"
+          echo "image_tag=v1.0.2" >> $GITHUB_OUTPUT
 
   deploy:
     runs-on: ubuntu-20.04
