@@ -21,10 +21,10 @@ jobs:
 
   deploy:
     runs-on: ubuntu-20.04
-    needs:
-      - hello-world
+    needs: hello-world
 
     steps:
       - name: echo
         run: |
+          echo "output ${{ needs.hello-world }}"
           echo "Image tag is ${{ needs.hello-world.outputs.image_tag }}"
