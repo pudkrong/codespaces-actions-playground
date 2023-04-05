@@ -2,9 +2,6 @@ name: Hello world
 
 on: [push]
 
-env:
-  GITHUB_TOKEN: ${{ secrets.TOKEN }}
-
 jobs:
   hello-world:
     runs-on: ubuntu-22.04
@@ -49,4 +46,6 @@ jobs:
         run: npm ci
 
       - name: Release new version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run semantic-release
