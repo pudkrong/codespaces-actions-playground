@@ -4,8 +4,28 @@ on: [push]
 
 jobs:
   hello-world:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Hello world
         run: |
           echo "Hello world"
+
+      - name: Set latest tag
+        run: |
+          git fetch --tags
+          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          echo "IMAGE_TAG=v1.0.2" >> $GITHUB_OUTPUT
+        id: image_tag
+
+  deploy:
+    runs-on: ubuntu-20.04
+    needs:
+      - hello-world
+
+    steps:
+      - name: echo
+        run: |
+          echo "Image tag is ${{ needs.hello-world.outputs.IMAGE_TAG }}"
